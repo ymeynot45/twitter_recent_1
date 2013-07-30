@@ -1,6 +1,5 @@
 
 $(document).ready(function() {
-
   var wait_image = function(){
   return "<img id='dude' src='http://www.reactiongifs.com/wp-content/uploads/2013/05/DudeWaiting.gif'/>";
   };
@@ -15,16 +14,17 @@ $(document).ready(function() {
   var title = $('h1');
 
   $('#url').on('submit', function(event){
+    event.preventDefault();
     $('#tweet-list').empty();
+
     var username = $('input[name="username"]').val();
     var route = "/" + username;
-    console.log(username);
-    event.preventDefault();
-    // (title).replaceWith(wait_message);
+
     title.after(wait_message);
     title.hide();
     url.after(wait_image());
     url.hide();
+
     $('#dude').css('border','10px solid grey');
     $.get(route, function(response) {
       $('#tweet-list').append(response);
