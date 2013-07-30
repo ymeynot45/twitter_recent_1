@@ -1,15 +1,12 @@
 <div class="container">
   <h1>Twitter Grabber</h1>
 
-
-  <ul>
-    <%  if @tweets %>
-      <% @tweets.each do |tweet| %>
-      <li><%= tweet.text %></li>
-      <% end %>
-    <% end %>
-  </ul>
-  <form action="/grab" method="get">
+<div id="tweet-list">
+  <% if @user %>
+    <%= erb :_tweets %>
+  <% end %>
+</div>
+  <form id="url" action="/grab" method="GET">
     <input type="text" name="username" placeholder="enter your username here...">
     <input type="submit" value="get tweets!">
   </form>

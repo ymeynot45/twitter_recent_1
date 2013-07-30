@@ -1,0 +1,7 @@
+<ul>
+    <%  if @tweets %>
+      <% @tweets.each do |tweet| %>
+      <li><%= tweet.text %></li>
+      <% end %>
+    <% end %>
+</ul>
